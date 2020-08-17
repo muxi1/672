@@ -32,6 +32,7 @@ function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML="Cac
 <button onclick="load_dbBackup(); return false"><h1 style='font-size:20px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> DB Backup </span></button> *
 <button onclick="load_dbRestore(); return false"><h1 style='font-size:20px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> DB Restore </span></button>
 <br><br><br>
+<button onclick="goto('index_2.html'); return false"><h1 style='font-size:20px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Mehr Tools </span></button> *
 <button onclick="load_fanthresh(); return false"><h1 style='font-size:20px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808">Aktiviere Luefter Steuerung</span></button><select id="tempC"></select>&#176;C<br><br>Die Standard Temperatur der PS4 betraegt 79&#176;C
 <script>
 for(var i=40; i<=79; i++){
@@ -157,6 +158,10 @@ LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling
 var script = document.createElement('script');script.src = "pl_fanthresh.js";document.getElementsByTagName('head')[0].appendChild(script);
 var script = document.createElement('script');script.src = "exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
 }
+
+function goto(url) {
+            location.href = url;
+        }
 </script>
 </body>
 </html>

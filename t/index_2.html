@@ -1,0 +1,34 @@
+<html manifest="cache.manifest">
+<head>
+<title>MUXI672 PRO Alpha</title>
+</head>
+<body style="background-color:white;color:black;">
+<div style="text-align:center">
+<img class="colelem" id="p_mxw" alt="&nbsp;PS4 6.72 ExPLoit / Payload Menu pro alpha by muxi " src="p_mxw.png" data-image-width="852"/><!-- rasterized frame -->
+<h1 id=msgs style='font-size:15px;text-align:center;'><br></h1>
+<br><hr>
+<div style="text-align:center">
+<img class="colelem" id="p_toolsw" alt="&nbsp;Mehr Tools " src="p_toolsw.png" data-image-width="852"/><br>
+<br><br><br>
+<img class="colelem" id="p_payw" alt="&nbsp;Payload " src="p_payw.png" data-image-width="852"/><br>
+<button onclick="load_rifren(); return false"><h1 style='font-size:20px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> RIF Renamer </span></button>
+<br><br><br>
+<button onclick="goto('index.html'); return false"><h1 style='font-size:20px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Hauptmenue </span></button>
+<br>
+</div>
+<script>
+
+function load_rifren(){
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade RIF Renamer ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>RIF Renamer erfolgreich geladen</h1>";
+var script = document.createElement('script');script.src = "pl_rifren.js";document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script');script.src = "exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+}
+
+function goto(url) {
+            location.href = url;
+        }
+
+</script>
+</body>
+</html>
