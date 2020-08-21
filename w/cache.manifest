@@ -6,7 +6,6 @@ exp_BinLoader.js
 exp_kernel.js
 exp_kernelHEN.js
 exp_loader.js
-exp_loaderHEN.js
 exp_webkit.js
 pl_updatesDisable.js
 pl_updatesEnable.js
@@ -22,6 +21,6 @@ pl_ToDEX.js
 pl_WebRTE.js
 pl_fanthresh.js
 pl_ps4debug.js
-p_mxw.png
-p_expw.png
-p_payw.png
+p_mxb.png
+p_expb.png
+p_payb.png
