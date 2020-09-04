@@ -14,7 +14,7 @@ function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML="Cac
 <h1 id=msgs style='font-size:15px;text-align:center;'><br></h1>
 <br><hr>
 <div style="text-align:center">
-<br><br><br><br>
+<br><br>
 <img class="colelem" id="p_pay" alt="&nbsp;Payloads " src="p_pay.png" data-image-width="852"/><br>
 <br>
 <button onclick="load_exploit_HEN(); return false"><h1 style='font-size:20px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> HEN 2.1.3 </span></button><br><br>
@@ -26,14 +26,16 @@ function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML="Cac
 <button onclick="load_kerneldump(); return false"><h1 style='font-size:20px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Kernel Dumper </span></button> *
 <button onclick="load_webrte(); return false"><h1 style='font-size:20px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> WebRTE </span></button> *
 <button onclick="load_ps4debug(); return false"><h1 style='font-size:20px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> PS4 Debug </span></button><br><br>
-<button onclick="load_todex(); return false"><h1 style='font-size:20px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> ToDEX </span></button> *
 <button onclick="load_historyblock(); return false"><h1 style='font-size:20px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> History Blocker </span></button> *
 <button onclick="load_updatesdisable(); return false"><h1 style='font-size:20px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Deaktiviere Updates </span></button> *
 <button onclick="load_updatesenable(); return false"><h1 style='font-size:20px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Aktiviere Updates </span></button> *
 <button onclick="load_dbBackup(); return false"><h1 style='font-size:20px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> DB Backup </span></button> *
-<button onclick="load_dbRestore(); return false"><h1 style='font-size:20px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> DB Restore </span></button>
-<br><br><br>
-<button onclick="load_fanthresh(); return false"><h1 style='font-size:20px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808">Aktiviere Luefter Steuerung</span></button><select id="tempC"></select>&#176;C<br><br>Die Standard Temperatur der PS4 betraegt 79&#176;C
+<button onclick="load_dbRestore(); return false"><h1 style='font-size:20px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> DB Restore </span></button> *
+<button onclick="load_todex(); return false"><h1 style='font-size:20px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> ToDEX </span></button><br><br>
+<button onclick="load_todev(); return false"><h1 style='font-size:20px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> ToDEV </span></button> *
+<button onclick="load_tokratos(); return false"><h1 style='font-size:20px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> ToKratos </span></button>
+<br><br>
+<button onclick="load_fanthresh(); return false"><h1 style='font-size:20px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808">Aktiviere Luefter Steuerung</span></button><select id="tempC"></select>&#176;C<br>Die Standard Temperatur der PS4 betraegt 79&#176;C
 <script>
 for(var i=40; i<=79; i++){
     var select = document.getElementById("tempC");
@@ -130,6 +132,24 @@ LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling
 function getScript(source,callback){var gs=document.createElement('script');gs.src=source;gs.onload=callback;gs.async=false;document.body.appendChild(gs);}
 function loadScript(){getScript("exp_kernel.js",function(){setTimeout(jailbreak,500);});}loadScript();
 var script = document.createElement('script');script.src = "pl_ToDEX.js";document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script');script.src = "exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+}
+
+function load_todev(){
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade ToDEV ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>ToDEV erfolgreich geladen</h1>";
+function getScript(source,callback){var gs=document.createElement('script');gs.src=source;gs.onload=callback;gs.async=false;document.body.appendChild(gs);}
+function loadScript(){getScript("exp_kernel.js",function(){setTimeout(jailbreak,500);});}loadScript();
+var script = document.createElement('script');script.src = "pl_ToDEV.js";document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script');script.src = "exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+}
+
+function load_tokratos(){
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade ToKratos ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>ToKratos erfolgreich geladen</h1>";
+function getScript(source,callback){var gs=document.createElement('script');gs.src=source;gs.onload=callback;gs.async=false;document.body.appendChild(gs);}
+function loadScript(){getScript("exp_kernel.js",function(){setTimeout(jailbreak,500);});}loadScript();
+var script = document.createElement('script');script.src = "pl_ToKratos.js";document.getElementsByTagName('head')[0].appendChild(script);
 var script = document.createElement('script');script.src = "exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
 }
 
