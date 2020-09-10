@@ -33767,12 +33767,14 @@ var _ = malloc_nogc.pop();
 var _ = malloc_nogc.pop();
 
 if (main_ret == 179 || main_ret == 0) {
+	localStorage.passcount = ++localStorage.passcount;window.passCounter.innerHTML=localStorage.passcount;
 	window.msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Exploit erfolgreich geladen. Lade jetzt den HEN ...</h1>";
     setTimeout(function(){
     plLoader();
     },1000);
 } 
 else {
-  window.msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Jailbreak fehlgeschlagen! - Reboote umgehend die PS4 und versuche es erneut.</h1>";
+    localStorage.failcount = ++localStorage.failcount;window.failCounter.innerHTML=localStorage.failcount;
+    window.msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Jailbreak fehlgeschlagen! - Reboote umgehend die PS4 und versuche es erneut.</h1>";
 }
 }
