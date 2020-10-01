@@ -4,6 +4,9 @@ CACHE MANIFEST
 index.html
 exp_BinLoader.js
 exp_kernel.js
+exp_kernelHEN300.js
+exp_kernelHEN213.js
+exp_kernelHEN213b.js
 exp_loader.js
 exp_webkit.js
 pl_updatesDisable.js
@@ -16,14 +19,12 @@ pl_ftp.js
 pl_linux.js
 pl_dbBackup.js
 pl_dbRestore.js
-pl_hen300.js
-pl_hen213.js
-pl_hen213b.js
 pl_ToDEX.js
 pl_ToDEV.js
 pl_ToKratos.js
 pl_WebRTE.js
 pl_fanthresh.js
 pl_ps4debug.js
+pl_temp.js
 p_mx.png
 p_pay.png
