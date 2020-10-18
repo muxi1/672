@@ -38,10 +38,11 @@ function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML="Cac
 <button onclick="load_todex(); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> ToDEX </span></button> *
 <button onclick="load_todev(); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> ToDEV </span></button> *
 <button onclick="load_tokratos(); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> ToKratos </span></button> *
-<button onclick="load_temp(); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> TempReport </span></button>
+<button onclick="load_temp(); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> TempReport </span></button> *
+<button onclick="load_gtav2(); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> GTA5 Menu v1.32 </span></button>
 <br><br>
 <button onclick="load_fanthresh(); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808">Aktiviere Luefter Steuerung</span></button><select id="tempC"></select>&#176;C<br>Die Standard Temperatur der PS4 betraegt 79&#176;C
-<h1 style='font-size:12px;text-align:right;font-family:Felix Titling'</h1><span>Version 1.13.0</span>
+<h1 style='font-size:12px;text-align:right;font-family:Felix Titling'</h1><span>Version 1.14.0</span>
 <script>
 for(var i=40; i<=79; i++){
     var select = document.getElementById("tempC");
@@ -243,6 +244,14 @@ LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling
 function getScript(source,callback){var gs=document.createElement('script');gs.src=source;gs.onload=callback;gs.async=false;document.body.appendChild(gs);}
 function loadScript(){getScript("exp_kernel.js",function(){setTimeout(jailbreak,500);});}loadScript();
 var script = document.createElement('script');script.src = "pl_temp.js";document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script');script.src = "exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+}
+
+function load_gtav2(){
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade GTA5 Menu v1.32 ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>GTA5 Menu v1.32 erfolgreich geladen</h1>";
+function getScript(source,callback){var gs=document.createElement('script');gs.src=source;gs.onload=callback;gs.async=false;document.body.appendChild(gs);}
+var script = document.createElement('script');script.src = "pl_gta_v2.js";document.getElementsByTagName('head')[0].appendChild(script);
 var script = document.createElement('script');script.src = "exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
 }
 
