@@ -22,13 +22,15 @@ function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML="Cac
 <button onclick="load_hen301b('pl_hen301b.bin'); return false"><h1 style='font-size:14px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> HEN 3.0.1b </span></button> oder
 <button onclick="load_hen300('pl_hen300.bin'); return false"><h1 style='font-size:14px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> HEN 3.0.0 </span></button> oder
 <button onclick="load_hen213('pl_hen213.bin'); return false"><h1 style='font-size:14px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> HEN 2.1.3 </span></button> oder
-<button onclick="load_hen213b('pl_hen213b.bin'); return false"><h1 style='font-size:14px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> HEN 2.1.3b </span></button>
+<button onclick="load_hen213b('pl_hen213b.bin'); return false"><h1 style='font-size:14px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> HEN 2.1.3b </span></button> oder
+<button onclick="load_hen213u('pl_hen213u.bin'); return false"><h1 style='font-size:14px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> HEN 2.1.3-U </span></button>
 <br><br>
 <img class="colelem" id="p_pay" alt="&nbsp;Payloads " src="p_pay.png" data-image-width="852"/><br><br>
 <button onclick="load_hen301b_exp('pl_hen301b.bin'); return false"><h1 style='font-size:14px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> HEN 3.0.1b </span></button> *
 <button onclick="load_hen300_exp('pl_hen300.bin'); return false"><h1 style='font-size:14px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> HEN 3.0.0 </span></button> *
 <button onclick="load_hen213_exp('pl_hen213.bin'); return false"><h1 style='font-size:14px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> HEN 2.1.3 </span></button> *
 <button onclick="load_hen213b_exp('pl_hen213b.bin'); return false"><h1 style='font-size:14px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> HEN 2.1.3b </span></button> *
+<button onclick="load_hen213b_exp('pl_hen213u.bin'); return false"><h1 style='font-size:14px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> HEN 2.1.3-U </span></button> *
 <button onclick="load_spoofer(); return false"><h1 style='font-size:14px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Spoofe auf Firmware </span></button><select id="fws1"></select><select id="fws2"></select>
 <br><br>
 <button onclick="load_binloader(); return false"><h1 style='font-size:14px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> BIN Loader </span></button> *
@@ -58,7 +60,7 @@ function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML="Cac
 <button onclick="load_gtav1('pl_gta_v1.bin'); return false"><h1 style='font-size:14px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> GTA5 LM Menu v1.32 </span></button>
 <br><br>
 <div style="position:fixed;left:0;bottom:-8px;width:100%;font-size:15px;">
-<hr>Version 1.17.1 (Sleirsgoevy Jailbreak vom 09.10.2020)<hr>
+<hr>Version 1.18.0 (Sleirsgoevy Jailbreak vom 09.10.2020)<hr>
 </div>
 <script>
 for(var i=40; i<=79; i++){var select = document.getElementById("tempC"); var option = document.createElement("OPTION"); select.options.add(option); option.text = i; option.value = i;}
@@ -156,6 +158,25 @@ var script = document.createElement('script'); script.src = "exp_loader.js"; doc
 }
 }
 
+function load_hen213u(PLfile) {var req = new XMLHttpRequest();req.responseType = "arraybuffer";req.open("GET", PLfile, true);req.send();req.onreadystatechange = function () {
+if (req.readyState == 4) {
+var tmp0 = new Uint8Array(req.response.byteLength);
+tmp0.set(new Uint8Array(req.response), 0);
+var payload = new Uint32Array(tmp0);
+for (var i = 0; i < payload.length; i++)
+var getlength = "0x" + req.response.byteLength.toString(16);
+window.mira_blob_2_len = getlength;
+window.mira_blob_2 = malloc(window.mira_blob_2_len);
+write_mem(window.mira_blob_2, payload);
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade HEN 2.1.3-U ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>HEN 2.1.3-U erfolgreich geladen - Druecke die Kreis Taste zum Schliessen des Fensters</h1>";
+function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
+var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
+}
+}
+}
+
 function load_hen301b_exp(PLfile) {var req = new XMLHttpRequest();req.responseType = "arraybuffer";req.open("GET", PLfile, true);req.send();req.onreadystatechange = function () {
 if (req.readyState == 4) {
 var tmp0 = new Uint8Array(req.response.byteLength);
@@ -228,6 +249,26 @@ window.mira_blob_2 = malloc(window.mira_blob_2_len);
 write_mem(window.mira_blob_2, payload);
 msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade Exploit + HEN 2.1.3b ...</h1>";
 LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Exploit + HEN 2.1.3b erfolgreich geladen - Druecke die Kreis Taste zum Schliessen des Fensters</h1>";
+function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
+function loadScript() { getScript("exp_jailbreak.js", function () { setTimeout(jailbreak, 500); }); } loadScript();
+var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
+}
+}
+}
+
+function load_hen213u_exp(PLfile) {var req = new XMLHttpRequest();req.responseType = "arraybuffer";req.open("GET", PLfile, true);req.send();req.onreadystatechange = function () {
+if (req.readyState == 4) {
+var tmp0 = new Uint8Array(req.response.byteLength);
+tmp0.set(new Uint8Array(req.response), 0);
+var payload = new Uint32Array(tmp0);
+for (var i = 0; i < payload.length; i++)
+var getlength = "0x" + req.response.byteLength.toString(16);
+window.mira_blob_2_len = getlength;
+window.mira_blob_2 = malloc(window.mira_blob_2_len);
+write_mem(window.mira_blob_2, payload);
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade Exploit + HEN 2.1.3-U ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Exploit + HEN 2.1.3-U erfolgreich geladen - Druecke die Kreis Taste zum Schliessen des Fensters</h1>";
 function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
 function loadScript() { getScript("exp_jailbreak.js", function () { setTimeout(jailbreak, 500); }); } loadScript();
 var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
