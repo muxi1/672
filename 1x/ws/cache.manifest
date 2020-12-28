@@ -13,6 +13,7 @@ pl_historyBlocker.bin
 pl_app2usb.bin
 pl_dumper.bin
 pl_ftp.bin
+pl_FakeUSB.bin
 pl_linux.bin
 pl_dbBackup.bin
 pl_dbRestore.bin
