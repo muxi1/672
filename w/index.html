@@ -78,6 +78,7 @@ Exploit Status:&nbsp; Erfolge = <span id=passCounterSL2></span>&nbsp;&nbsp;&nbsp
 <button onclick=load_fanthresh()><h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Luefter Steuerung </button><select id="tempC"></select>&#176;C
 <br>
 <button onclick=load_dumper()><h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Game Dumper </button> *
+<button onclick=load_fakeusb()><h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Fake USB </button> *
 <button onclick=load_dbBackup()><h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Database Backup </button> *
 <button onclick=load_dbRestore()><h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Database Restore </button> *
 <button onclick=load_AvatarBackup()><h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Avatar Backup </button> *
@@ -95,7 +96,7 @@ Exploit Status:&nbsp; Erfolge = <span id=passCounterSL2></span>&nbsp;&nbsp;&nbsp
  <button onclick=set_autoexpHenb()<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Auto Exploit + HEN v2.1.3b = <span id=autoexpHenb2></span><script>autoexp2.innerHTML=localStorage.autoexp;autoexpHen2.innerHTML=localStorage.autoexpHen;autoexpHenb2.innerHTML=localStorage.autoexpHenb;</script></button>
 </div>
 <div style="position:fixed;left:0;bottom:-8px;width:100%;font-size:16px;">
-<hr>Version 2.1.0 (Sleirsgoevy Jailbreak vom 09.10.2020)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*PS4 Firmware v<span id="PS4fw"></span> gefunden.<hr>
+<hr>Version 2.1.1 (Sleirsgoevy Jailbreak vom 09.10.2020)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*PS4 Firmware v<span id="PS4fw"></span> gefunden.<hr>
 </div>
 <script>
 for(var i=40; i<=79; i++){var select = document.getElementById("tempC"); var option = document.createElement("OPTION"); select.options.add(option); option.text = i; option.value = i;}
@@ -348,6 +349,13 @@ function load_temp(){
 msgs.innerHTML="Lade TempReport ...";
 LoadedMSG="TempReport erfolgreich geladen";
 PLfile="pl_temp.bin";
+loadScript2();
+}
+
+function load_fakeusb(){
+msgs.innerHTML="Lade Fake USB ...";
+LoadedMSG="Fake USB erfolgreich geladen";
+PLfile="pl_FakeUSB.bin";
 loadScript2();
 }
 
