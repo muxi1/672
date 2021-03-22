@@ -17,11 +17,7 @@ pl_FakeUSB.bin
 pl_linux.bin
 pl_dbBackup.bin
 pl_dbRestore.bin
-pl_hen300.bin
-pl_hen301b.bin
-pl_hen213.bin
-pl_hen213b.bin
-pl_hen213u.bin
+pl_hen.bin
 pl_ToDEX.bin
 pl_ToDEV.bin
 pl_ToKratos.bin
