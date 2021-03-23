@@ -12,7 +12,6 @@ pl_kernelDumper.bin
 pl_historyBlocker.bin
 pl_app2usb.bin
 pl_dumper.bin
-pl_ftp.bin
 pl_FakeUSB.bin
 pl_linux.bin
 pl_dbBackup.bin
@@ -27,7 +26,6 @@ pl_ps4debug.bin
 pl_temp.bin
 pl_gta_v1.bin
 pl_gta_v2.bin
-pl_spoofer.js
 pl_avBackup.bin
 pl_avRestore.bin
 p_mx.png
