@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-<html manifest="exploit.cache">
+<html manifest="cache.manifest">
 <html class="nojs html css_verticalspacer" lang="de-DE">
  <head>
+<script>
+function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));window.msgs.innerHTML="Installiere Offline Cache: " + Percent + "%";}
+function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML="Cache erfolgreich installiert";},1000);setTimeout(function(){window.msgs.innerHTML="Schliesse jetzt den Browser wieder und oeffne ihn erneut!";},3000);}window.applicationCache.addEventListener("progress",DLProgress,false);window.applicationCache.oncached=function(e){DisplayCacheProgress();};window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
+</script>
 
   <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
   <meta name="generator" content="2017.0.0.363"/>
@@ -9,11 +13,7 @@
     
   
   <title>MUXI755 PRO</title>
-  <script>
-function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));window.msgs.innerHTML="Installiere Offline Cache: " + Percent + "%";}
-function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML="Cache erfolgreich installiert";},1000);setTimeout(function(){window.msgs.innerHTML="Schliesse jetzt den Browser wieder und oeffne ihn erneut!";},3000);}window.applicationCache.addEventListener("progress",DLProgress,false);window.applicationCache.oncached=function(e){DisplayCacheProgress();};window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
-</script>
-  <!-- CSS -->
+   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="site_global.css"/>
   <link rel="stylesheet" type="text/css" href="index.css" id="pagesheet"/>
    </head>
