@@ -19,10 +19,10 @@ function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML="Cac
 <img class="colelem" id="p_exp" alt="&nbsp;Exploit " src="p_exp.png" data-image-width="852"/><br>
 <br>
 <button onclick="load_exploit(); return false"><h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Exploit </span></button> dann
-<button onclick="load_hen('pl_hen.bin'); return false"><h1 style='font-size:14px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> GoldHEN 1.00 </span></button>
+<button onclick="load_hen('pl_hen.bin'); return false"><h1 style='font-size:14px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> GoldHEN </span></button>
 <br><br>
 <img class="colelem" id="p_pay" alt="&nbsp;Payloads " src="p_pay.png" data-image-width="852"/><br><br>
-<button onclick="load_hen_exp('pl_hen.bin'); return false"><h1 style='font-size:14px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> GoldHEN 1.00 </span></button> *
+<button onclick="load_hen_exp('pl_hen.bin'); return false"><h1 style='font-size:14px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> GoldHEN </span></button> *
 <button onclick="load_binloader(); return false"><h1 style='font-size:14px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> BIN Loader </span></button> *
 <button onclick="load_dumper('pl_dumper.bin'); return false"><h1 style='font-size:14px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Game Dumper </span></button> *
 <button onclick="load_app2usb('pl_app2usb.bin'); return false"><h1 style='font-size:14px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> App2USB </span></button> *
@@ -50,7 +50,7 @@ function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML="Cac
 <button onclick="load_gtav1('pl_gta_v1.bin'); return false"><h1 style='font-size:14px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> GTA5 LM Menu v1.32 </span></button>
 <br><br>
 <div style="position:fixed;left:0;bottom:-8px;width:100%;font-size:15px;">
-<hr>Version 1.22 (Sleirsgoevy Jailbreak vom 09.10.2020)<hr>
+<hr>Version 1.23 (Sleirsgoevy Jailbreak vom 09.10.2020)<hr>
 </div>
 <script>
 for(var i=40; i<=79; i++){var select = document.getElementById("tempC"); var option = document.createElement("OPTION"); select.options.add(option); option.text = i; option.value = i;}
@@ -82,8 +82,8 @@ var getlength = "0x" + req.response.byteLength.toString(16);
 window.mira_blob_2_len = getlength;
 window.mira_blob_2 = malloc(window.mira_blob_2_len);
 write_mem(window.mira_blob_2, payload);
-msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade GoldHEN 1.00 ...</h1>";
-LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>GoldHEN 1.00 erfolgreich geladen - Druecke die Kreis Taste zum Schliessen des Fensters</h1>";
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade GoldHEN 1.1 ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>GoldHEN 1.1 erfolgreich geladen - Druecke die Kreis Taste zum Schliessen des Fensters</h1>";
 function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
 var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
 var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
@@ -101,8 +101,8 @@ var getlength = "0x" + req.response.byteLength.toString(16);
 window.mira_blob_2_len = getlength;
 window.mira_blob_2 = malloc(window.mira_blob_2_len);
 write_mem(window.mira_blob_2, payload);
-msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade Exploit + GoldHEN 1.00 ...</h1>";
-LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Exploit + GoldHEN 1.00 erfolgreich geladen - Druecke die Kreis Taste zum Schliessen des Fensters</h1>";
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade Exploit + GoldHEN 1.1 ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Exploit + GoldHEN 1.1 erfolgreich geladen - Druecke die Kreis Taste zum Schliessen des Fensters</h1>";
 function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
 function loadScript() { getScript("exp_jailbreak.js", function () { setTimeout(jailbreak, 500); }); } loadScript();
 var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
