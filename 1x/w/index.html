@@ -26,7 +26,8 @@ function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML="Cac
 <button onclick="load_linux('pl_linux.bin'); return false"><h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Linux </span></button> *
 <button onclick="load_kerneldump('pl_kernelDumper.bin'); return false"><h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Kernel Dumper </span></button> *
 <button onclick="load_webrte('pl_WebRTE.bin'); return false"><h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> WebRTE </span></button> *
-<button onclick="load_ps4debug('pl_ps4debug.bin'); return false"><h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> PS4 Debug </span></button>
+<button onclick="load_ps4debug('pl_ps4debug.bin'); return false"><h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> PS4 Debug </span></button> *
+<button onclick="load_spoofer(); return false"><h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Spoofe Firmware auf </span></button><select id="fws1"></select><select id="fws2"></select>
 <br><br>
 <button onclick="load_historyblock('pl_historyBlocker.bin'); return false"><h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> History Blocker </span></button> *
 <button onclick="load_updatesdisable('pl_updatesDisable.bin'); return false"><h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Deaktiviere Updates </span></button> *
@@ -47,7 +48,7 @@ function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML="Cac
 <button onclick="load_gtav1('pl_gta_v1.bin'); return false"><h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> GTA5 LM Menu v1.32 </span></button>
 <br><br>
 <div style="position:fixed;left:0;bottom:-8px;width:100%;font-size:16px;">
-<hr>Version 1.23 (Sleirsgoevy Jailbreak vom 09.10.2020)<hr>
+<hr>Version 1.24 (Sleirsgoevy Jailbreak vom 09.10.2020)<hr>
 </div>
 <script>
 for(var i=40; i<=79; i++){var select = document.getElementById("tempC"); var option = document.createElement("OPTION"); select.options.add(option); option.text = i; option.value = i;}
@@ -87,6 +88,25 @@ function load_binloader(){
 msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade Bin Loader ...</h1>";
 LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Sende einen Payload ueber Port 9021</h1>";
 var script = document.createElement('script');script.src = "exp_BinLoader.js";document.getElementsByTagName('head')[0].appendChild(script);
+}
+
+function load_ftp(PLfile) {var req = new XMLHttpRequest();req.responseType = "arraybuffer";req.open("GET", PLfile, true);req.send();req.onreadystatechange = function () {
+if (req.readyState == 4) {
+var tmp0 = new Uint8Array(req.response.byteLength);
+tmp0.set(new Uint8Array(req.response), 0);
+var payload = new Uint32Array(tmp0);
+for (var i = 0; i < payload.length; i++)
+var getlength = "0x" + req.response.byteLength.toString(16);
+window.mira_blob_2_len = getlength;
+window.mira_blob_2 = malloc(window.mira_blob_2_len);
+write_mem(window.mira_blob_2, payload);
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade FTP ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>FTP erfolgreich geladen</h1>";
+function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
+var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
+}
+}
 }
 
 function load_dumper(PLfile) {var req = new XMLHttpRequest();req.responseType = "arraybuffer";req.open("GET", PLfile, true);req.send();req.onreadystatechange = function () {
@@ -477,6 +497,15 @@ var script = document.createElement('script');script.src = "pl_fanthresh.js";doc
 var script = document.createElement('script');script.src = "exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
 }
 
+function load_spoofer(){
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade Firmware Spoofer (Mod by storm21) ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Firmware Spoofer (Mod by storm21) erfolgreich geladen</h1>";
+fw1 = parseInt(fws1.value, 16);
+fw2 = parseInt(fws2.value, 16);
+setTimeout(jailbreak, 500);
+var script = document.createElement('script'); script.src = "pl_spoofer.js"; document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
+}
 </script>
 </body>
 </html>
