@@ -42,6 +42,7 @@ function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML="Cac
 <button onclick="load_AvatarBackup('pl_avBackup.bin'); return false"><h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Avatar Backup </span></button> *
 <button onclick="load_AvatarRestore('pl_avRestore.bin'); return false"><h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Avatar Restore </span></button>
 <br><br>
+<button onclick="load_toolbox('pl_toolbox.bin'); return false"><h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Orbis Toolbox </span></button> *
 <button onclick="load_fakeusb('pl_FakeUSB.bin'); return false"><h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Fake USB </span></button> *
 <button onclick="load_todex('pl_ToDEX.bin'); return false"><h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> ToDEX </span></button> *
 <button onclick="load_todev('pl_ToDEV.bin'); return false"><h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> ToDEV </span></button> *
@@ -53,7 +54,7 @@ function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML="Cac
 <button onclick="load_gtav1('pl_gta_v1.bin'); return false"><h1 style='font-size:15px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> GTA5 LM Menu v1.32 </span></button>
 <br><br>
 <div style="position:fixed;left:0;bottom:-8px;width:100%;font-size:16px;">
-<hr>Version 1.25 (Sleirsgoevy Jailbreak vom 09.10.2020 - Webkit Exploit vom 13.04.2021)<hr>
+<hr>Version 1.26 (Sleirsgoevy Jailbreak vom 09.10.2020 - Webkit Exploit vom 13.04.2021)<hr>
 </div>
 <script>
 for(var i=40; i<=79; i++){var select = document.getElementById("tempC"); var option = document.createElement("OPTION"); select.options.add(option); option.text = i; option.value = i;}
@@ -487,6 +488,25 @@ window.mira_blob_2 = malloc(window.mira_blob_2_len);
 write_mem(window.mira_blob_2, payload);
 msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade Fake USB ...</h1>";
 LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Fake USB erfolgreich geladen</h1>";
+function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
+var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
+}
+}
+}
+
+function load_toolbox(PLfile) {var req = new XMLHttpRequest();req.responseType = "arraybuffer";req.open("GET", PLfile, true);req.send();req.onreadystatechange = function () {
+if (req.readyState == 4) {
+var tmp0 = new Uint8Array(req.response.byteLength);
+tmp0.set(new Uint8Array(req.response), 0);
+var payload = new Uint32Array(tmp0);
+for (var i = 0; i < payload.length; i++)
+var getlength = "0x" + req.response.byteLength.toString(16);
+window.mira_blob_2_len = getlength;
+window.mira_blob_2 = malloc(window.mira_blob_2_len);
+write_mem(window.mira_blob_2, payload);
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade Orbis Toolbox ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Orbis Toolbox erfolgreich geladen</h1>";
 function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
 var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
 var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
