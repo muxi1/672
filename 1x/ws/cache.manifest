@@ -3,12 +3,7 @@ CACHE MANIFEST
 
 index.html
 exp_BinLoader.js
-exp_exploit.js
-exp_helpers.js
-exp_malloc.js
-exp_rop.js
-exp_syscalls.js
-exp_syscalls2.js
+exp_common.js
 exp_jailbreak.js
 exp_loader.js
 pl_updatesDisable.bin
