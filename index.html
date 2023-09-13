@@ -74,8 +74,8 @@ var getlength = "0x" + req.response.byteLength.toString(16);
 window.mira_blob_2_len = getlength;
 window.mira_blob_2 = malloc(window.mira_blob_2_len);
 write_mem(window.mira_blob_2, payload);
-msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade GoldHEN v2.4b14 ...</h1>";
-LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>GoldHEN v2.4b14 erfolgreich geladen - Druecke die Kreis Taste zum Schliessen des Fensters</h1>";
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade GoldHEN v2.4b13 ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>GoldHEN v2.4b13 erfolgreich geladen - Druecke die Kreis Taste zum Schliessen des Fensters</h1>";
 function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
 var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
 var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
