@@ -2,17 +2,24 @@ CACHE MANIFEST
 
 
 index.html
+exp_BinLoader.js
 exp_common.js
 exp_jailbreak.js
 exp_loader.js
+pl_updatesEnable.bin
 pl_historyBlocker.bin
 pl_app2usb.bin
 pl_dumper.bin
+pl_FakeUSB.bin
 pl_dbBackup.bin
 pl_dbRestore.bin
 pl_hen.bin
+pl_ToDEV.bin
+pl_ToDEX.bin
+pl_WebRTE.bin
 pl_fanthresh.js
 pl_spoofer.js
 pl_ps4debug.bin
+pl_toolbox.bin
 p_mx.png
 p_pay.png

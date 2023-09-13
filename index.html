@@ -20,13 +20,20 @@ function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML="Cac
 <br><br><br>
 <img class="colelem" id="p_pay" alt="&nbsp;Payloads " src="p_pay.png" data-image-width="852"/><br><br>
 <button onclick="load_HEN('pl_hen.bin'); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> GoldHEN </span></button><br><br>
+<button onclick="load_binloader(); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> BIN Loader </span></button> *
 <button onclick="load_dumper('pl_dumper.bin'); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Game Dumper </span></button> *
 <button onclick="load_app2usb('pl_app2usb.bin'); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> App2USB </span></button> *
+<button onclick="load_webrte('pl_WebRTE.bin'); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> WebRTE </span></button> *
 <button onclick="load_ps4debug('pl_ps4debug.bin'); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> PS4 Debug </span></button> *
+<button onclick="load_toolbox('pl_toolbox.bin'); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Orbis Toolbox </span></button> *
 <button onclick="load_historyblock('pl_historyBlocker.bin'); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> History Blocker </span></button><br><br>
+<button onclick="load_fakeusb('pl_FakeUSB.bin'); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Fake USB </span></button> *
+<button onclick="load_updatesenable('pl_updatesEnable.bin'); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Aktiviere Updates </span></button> *
 <button onclick="load_dbBackup('pl_dbBackup.bin'); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> DB Backup </span></button> *
 <button onclick="load_dbRestore('pl_dbRestore.bin'); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> DB Restore </span></button> *
 <button onclick="load_spoofer(); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Spoofe Firmware auf </span></button><select id="fws1"></select><select id="fws2"></select><br><br>
+<button onclick="load_todex('pl_ToDEV.bin'); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> ToDEX </span></button> *
+<button onclick="load_todev('pl_ToDEV.bin'); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> ToDEV </span></button> *
 <button onclick="load_fanthresh(); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808">Aktiviere Luefter Steuerung</span></button><select id="tempC"></select>&#176;C
 <br><br>
 <div style="position:fixed;left:0;bottom:-8px;width:100%;font-size:16px;">
@@ -76,6 +83,12 @@ var script = document.createElement('script'); script.src = "exp_loader.js"; doc
 }
 }
 
+function load_binloader(){
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade Bin Loader ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Sende einen Payload ueber Port 9021</h1>";
+var script = document.createElement('script');script.src = "exp_BinLoader.js";document.getElementsByTagName('head')[0].appendChild(script);
+}
+
 function load_dumper(PLfile) {var req = new XMLHttpRequest();req.responseType = "arraybuffer";req.open("GET", PLfile, true);req.send();req.onreadystatechange = function () {
 if (req.readyState == 4) {
 var tmp0 = new Uint8Array(req.response.byteLength);
@@ -114,6 +127,25 @@ var script = document.createElement('script'); script.src = "exp_loader.js"; doc
 }
 }
 
+function load_webrte(PLfile) {var req = new XMLHttpRequest();req.responseType = "arraybuffer";req.open("GET", PLfile, true);req.send();req.onreadystatechange = function () {
+if (req.readyState == 4) {
+var tmp0 = new Uint8Array(req.response.byteLength);
+tmp0.set(new Uint8Array(req.response), 0);
+var payload = new Uint32Array(tmp0);
+for (var i = 0; i < payload.length; i++)
+var getlength = "0x" + req.response.byteLength.toString(16);
+window.mira_blob_2_len = getlength;
+window.mira_blob_2 = malloc(window.mira_blob_2_len);
+write_mem(window.mira_blob_2, payload);
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade WebRTE ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>WebRTE erfolgreich geladen</h1>";
+function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
+var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
+}
+}
+}
+
 function load_ps4debug(PLfile) {var req = new XMLHttpRequest();req.responseType = "arraybuffer";req.open("GET", PLfile, true);req.send();req.onreadystatechange = function () {
 if (req.readyState == 4) {
 var tmp0 = new Uint8Array(req.response.byteLength);
@@ -133,6 +165,44 @@ var script = document.createElement('script'); script.src = "exp_loader.js"; doc
 }
 }
 
+function load_todev(PLfile) {var req = new XMLHttpRequest();req.responseType = "arraybuffer";req.open("GET", PLfile, true);req.send();req.onreadystatechange = function () {
+if (req.readyState == 4) {
+var tmp0 = new Uint8Array(req.response.byteLength);
+tmp0.set(new Uint8Array(req.response), 0);
+var payload = new Uint32Array(tmp0);
+for (var i = 0; i < payload.length; i++)
+var getlength = "0x" + req.response.byteLength.toString(16);
+window.mira_blob_2_len = getlength;
+window.mira_blob_2 = malloc(window.mira_blob_2_len);
+write_mem(window.mira_blob_2, payload);
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade ToDEV ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>ToDEV erfolgreich geladen</h1>";
+function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
+var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
+}
+}
+}
+
+function load_todex(PLfile) {var req = new XMLHttpRequest();req.responseType = "arraybuffer";req.open("GET", PLfile, true);req.send();req.onreadystatechange = function () {
+if (req.readyState == 4) {
+var tmp0 = new Uint8Array(req.response.byteLength);
+tmp0.set(new Uint8Array(req.response), 0);
+var payload = new Uint32Array(tmp0);
+for (var i = 0; i < payload.length; i++)
+var getlength = "0x" + req.response.byteLength.toString(16);
+window.mira_blob_2_len = getlength;
+window.mira_blob_2 = malloc(window.mira_blob_2_len);
+write_mem(window.mira_blob_2, payload);
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade ToDEX ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>ToDEX erfolgreich geladen</h1>";
+function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
+var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
+}
+}
+}
+
 function load_historyblock(PLfile) {var req = new XMLHttpRequest();req.responseType = "arraybuffer";req.open("GET", PLfile, true);req.send();req.onreadystatechange = function () {
 if (req.readyState == 4) {
 var tmp0 = new Uint8Array(req.response.byteLength);
@@ -145,6 +215,25 @@ window.mira_blob_2 = malloc(window.mira_blob_2_len);
 write_mem(window.mira_blob_2, payload);
 msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade History Blocker ...</h1>";
 LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>History Blocker erfolgreich ausgefuehrt</h1>";
+function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
+var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
+}
+}
+}
+
+function load_updatesenable(PLfile) {var req = new XMLHttpRequest();req.responseType = "arraybuffer";req.open("GET", PLfile, true);req.send();req.onreadystatechange = function () {
+if (req.readyState == 4) {
+var tmp0 = new Uint8Array(req.response.byteLength);
+tmp0.set(new Uint8Array(req.response), 0);
+var payload = new Uint32Array(tmp0);
+for (var i = 0; i < payload.length; i++)
+var getlength = "0x" + req.response.byteLength.toString(16);
+window.mira_blob_2_len = getlength;
+window.mira_blob_2 = malloc(window.mira_blob_2_len);
+write_mem(window.mira_blob_2, payload);
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Aktiviere Updates ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Aktiviere Updates erfolgreich ausgefuehrt</h1>";
 function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
 var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
 var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
@@ -183,6 +272,44 @@ window.mira_blob_2 = malloc(window.mira_blob_2_len);
 write_mem(window.mira_blob_2, payload);
 msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade DB Restore ...</h1>";
 LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>DB Restore erfolgreich geladen</h1>";
+function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
+var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
+}
+}
+}
+
+function load_fakeusb(PLfile) {var req = new XMLHttpRequest();req.responseType = "arraybuffer";req.open("GET", PLfile, true);req.send();req.onreadystatechange = function () {
+if (req.readyState == 4) {
+var tmp0 = new Uint8Array(req.response.byteLength);
+tmp0.set(new Uint8Array(req.response), 0);
+var payload = new Uint32Array(tmp0);
+for (var i = 0; i < payload.length; i++)
+var getlength = "0x" + req.response.byteLength.toString(16);
+window.mira_blob_2_len = getlength;
+window.mira_blob_2 = malloc(window.mira_blob_2_len);
+write_mem(window.mira_blob_2, payload);
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade Fake USB ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Fake USB erfolgreich geladen</h1>";
+function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
+var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
+}
+}
+}
+
+function load_toolbox(PLfile) {var req = new XMLHttpRequest();req.responseType = "arraybuffer";req.open("GET", PLfile, true);req.send();req.onreadystatechange = function () {
+if (req.readyState == 4) {
+var tmp0 = new Uint8Array(req.response.byteLength);
+tmp0.set(new Uint8Array(req.response), 0);
+var payload = new Uint32Array(tmp0);
+for (var i = 0; i < payload.length; i++)
+var getlength = "0x" + req.response.byteLength.toString(16);
+window.mira_blob_2_len = getlength;
+window.mira_blob_2 = malloc(window.mira_blob_2_len);
+write_mem(window.mira_blob_2, payload);
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade Orbis Toolbox ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Orbis Toolbox erfolgreich geladen</h1>";
 function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
 var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
 var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
