@@ -1,0 +1,212 @@
+<html manifest="cache.manifest">
+<head>
+<title>MUXI672 PRO Alpha Lite</title>
+<script>
+function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));window.msgs.innerHTML="Installiere Offline Cache: " + Percent + "%";}
+function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML="Cache erfolgreich installiert";},1000);setTimeout(function(){window.msgs.innerHTML="Schliesse jetzt den Browser wieder und oeffne ihn erneut!";},3000);}window.applicationCache.addEventListener("progress",DLProgress,false);window.applicationCache.oncached=function(e){DisplayCacheProgress();};window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
+</script>
+<script src="exp_common.js"></script>
+<script src="exp_jailbreak.js"></script>
+</head>
+<body style="background-color:black;color:white;">
+<div style="text-align:center">
+<br>
+<img class="colelem" id="p_mx" alt="&nbsp;PS4 6.72 ExPLoit / Payload Menu pro alpha by muxi " src="p_mx.png" data-image-width="852"/><!-- rasterized frame -->
+<h1 id=msgs style='font-size:15px;text-align:center;'><br></h1>
+<br>
+<div text-align= center>Erfolge = <span id=passCounter></span>&nbsp;&nbsp;/&nbsp;&nbsp;Fehlschlaege = <span id=failCounter></span></div>
+<hr>
+<div style="text-align:center">
+<br><br><br>
+<img class="colelem" id="p_pay" alt="&nbsp;Payloads " src="p_pay.png" data-image-width="852"/><br><br>
+<button onclick="load_HEN('pl_hen.bin'); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> GoldHEN </span></button><br><br>
+<button onclick="load_dumper('pl_dumper.bin'); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Game Dumper </span></button> *
+<button onclick="load_app2usb('pl_app2usb.bin'); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> App2USB </span></button> *
+<button onclick="load_ps4debug('pl_ps4debug.bin'); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> PS4 Debug </span></button> *
+<button onclick="load_historyblock('pl_historyBlocker.bin'); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> History Blocker </span></button><br><br>
+<button onclick="load_dbBackup('pl_dbBackup.bin'); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> DB Backup </span></button> *
+<button onclick="load_dbRestore('pl_dbRestore.bin'); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> DB Restore </span></button> *
+<button onclick="load_spoofer(); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808"> Spoofe Firmware auf </span></button><select id="fws1"></select><select id="fws2"></select><br><br>
+<button onclick="load_fanthresh(); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808">Aktiviere Luefter Steuerung</span></button><select id="tempC"></select>&#176;C
+<br><br>
+<div style="position:fixed;left:0;bottom:-8px;width:100%;font-size:16px;">
+<hr>Lite Version 27 *** GoldHEN v2.4b14 *** (Sleirsgoevy Jailbreak vom 13.01.2022 - Webkit Exploit vom 13.04.2021)<hr>
+</div>
+<script>
+for(var i=40; i<=79; i++){var select = document.getElementById("tempC"); var option = document.createElement("OPTION"); select.options.add(option); option.text = i; option.value = i;}
+tempC.value=79;
+</script>
+</select>
+<script>
+for (var i = 1; i <= 99; i++) {var select1 = document.getElementById("fws1");var option1 = document.createElement("OPTION");select1.options.add(option1);option1.text = i;option1.value = i;}fws1.value = 9;
+</script>
+</select>
+<script>
+for (var i = 00; i <= 99; i++) {var select2 = document.getElementById("fws2");var option2 = document.createElement("OPTION");select2.options.add(option2);option2.text = ("0" + i).slice(-2);option2.value = i;}fws2.value = 00;
+</script>
+<br>
+</div>
+<script>
+if (localStorage.passcount == null) localStorage.passcount=0;
+window.passCounter.innerHTML=localStorage.passcount;
+if (localStorage.failcount == null) localStorage.failcount=0;
+window.failCounter.innerHTML=localStorage.failcount;
+
+function load_HEN(PLfile) {
+
+function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
+function loadScript() { getScript("exp_jailbreak.js", function () { setTimeout(jailbreak, 500); }); } loadScript();
+
+var req = new XMLHttpRequest();req.responseType = "arraybuffer";req.open("GET", PLfile, true);req.send();req.onreadystatechange = function () {
+if (req.readyState == 4) {
+var tmp0 = new Uint8Array(req.response.byteLength);
+tmp0.set(new Uint8Array(req.response), 0);
+var payload = new Uint32Array(tmp0);
+for (var i = 0; i < payload.length; i++)
+var getlength = "0x" + req.response.byteLength.toString(16);
+window.mira_blob_2_len = getlength;
+window.mira_blob_2 = malloc(window.mira_blob_2_len);
+write_mem(window.mira_blob_2, payload);
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade GoldHEN v2.4 ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>GoldHEN v2.4 erfolgreich geladen - Druecke die Kreis Taste zum Schliessen des Fensters</h1>";
+function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
+var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
+}
+}
+}
+
+function load_dumper(PLfile) {var req = new XMLHttpRequest();req.responseType = "arraybuffer";req.open("GET", PLfile, true);req.send();req.onreadystatechange = function () {
+if (req.readyState == 4) {
+var tmp0 = new Uint8Array(req.response.byteLength);
+tmp0.set(new Uint8Array(req.response), 0);
+var payload = new Uint32Array(tmp0);
+for (var i = 0; i < payload.length; i++)
+var getlength = "0x" + req.response.byteLength.toString(16);
+window.mira_blob_2_len = getlength;
+window.mira_blob_2 = malloc(window.mira_blob_2_len);
+write_mem(window.mira_blob_2, payload);
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade Game Dumper ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Game Dumper erfolgreich geladen</h1>";
+function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
+var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
+}
+}
+}
+
+function load_app2usb(PLfile) {var req = new XMLHttpRequest();req.responseType = "arraybuffer";req.open("GET", PLfile, true);req.send();req.onreadystatechange = function () {
+if (req.readyState == 4) {
+var tmp0 = new Uint8Array(req.response.byteLength);
+tmp0.set(new Uint8Array(req.response), 0);
+var payload = new Uint32Array(tmp0);
+for (var i = 0; i < payload.length; i++)
+var getlength = "0x" + req.response.byteLength.toString(16);
+window.mira_blob_2_len = getlength;
+window.mira_blob_2 = malloc(window.mira_blob_2_len);
+write_mem(window.mira_blob_2, payload);
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade App2USB ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>App2USB erfolgreich geladen</h1>";
+function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
+var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
+}
+}
+}
+
+function load_ps4debug(PLfile) {var req = new XMLHttpRequest();req.responseType = "arraybuffer";req.open("GET", PLfile, true);req.send();req.onreadystatechange = function () {
+if (req.readyState == 4) {
+var tmp0 = new Uint8Array(req.response.byteLength);
+tmp0.set(new Uint8Array(req.response), 0);
+var payload = new Uint32Array(tmp0);
+for (var i = 0; i < payload.length; i++)
+var getlength = "0x" + req.response.byteLength.toString(16);
+window.mira_blob_2_len = getlength;
+window.mira_blob_2 = malloc(window.mira_blob_2_len);
+write_mem(window.mira_blob_2, payload);
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade PS4 Debug ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>PS4 Debug erfolgreich geladen</h1>";
+function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
+var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
+}
+}
+}
+
+function load_historyblock(PLfile) {var req = new XMLHttpRequest();req.responseType = "arraybuffer";req.open("GET", PLfile, true);req.send();req.onreadystatechange = function () {
+if (req.readyState == 4) {
+var tmp0 = new Uint8Array(req.response.byteLength);
+tmp0.set(new Uint8Array(req.response), 0);
+var payload = new Uint32Array(tmp0);
+for (var i = 0; i < payload.length; i++)
+var getlength = "0x" + req.response.byteLength.toString(16);
+window.mira_blob_2_len = getlength;
+window.mira_blob_2 = malloc(window.mira_blob_2_len);
+write_mem(window.mira_blob_2, payload);
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade History Blocker ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>History Blocker erfolgreich ausgefuehrt</h1>";
+function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
+var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
+}
+}
+}
+
+function load_dbBackup(PLfile) {var req = new XMLHttpRequest();req.responseType = "arraybuffer";req.open("GET", PLfile, true);req.send();req.onreadystatechange = function () {
+if (req.readyState == 4) {
+var tmp0 = new Uint8Array(req.response.byteLength);
+tmp0.set(new Uint8Array(req.response), 0);
+var payload = new Uint32Array(tmp0);
+for (var i = 0; i < payload.length; i++)
+var getlength = "0x" + req.response.byteLength.toString(16);
+window.mira_blob_2_len = getlength;
+window.mira_blob_2 = malloc(window.mira_blob_2_len);
+write_mem(window.mira_blob_2, payload);
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade DB Backup ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>DB Backup erfolgreich geladen</h1>";
+function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
+var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
+}
+}
+}
+
+function load_dbRestore(PLfile) {var req = new XMLHttpRequest();req.responseType = "arraybuffer";req.open("GET", PLfile, true);req.send();req.onreadystatechange = function () {
+if (req.readyState == 4) {
+var tmp0 = new Uint8Array(req.response.byteLength);
+tmp0.set(new Uint8Array(req.response), 0);
+var payload = new Uint32Array(tmp0);
+for (var i = 0; i < payload.length; i++)
+var getlength = "0x" + req.response.byteLength.toString(16);
+window.mira_blob_2_len = getlength;
+window.mira_blob_2 = malloc(window.mira_blob_2_len);
+write_mem(window.mira_blob_2, payload);
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade DB Restore ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>DB Restore erfolgreich geladen</h1>";
+function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
+var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
+}
+}
+}
+
+function load_fanthresh(){
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade Luefter Steuerung ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Luefter Steuerung erfolgreich geladen</h1>";fanTemp=tempC.value;
+function getScript(source,callback){var gs=document.createElement('script');gs.src=source;gs.onload=callback;gs.async=false;document.body.appendChild(gs);}
+var script = document.createElement('script');script.src = "pl_fanthresh.js";document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script');script.src = "exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+}
+
+function load_spoofer(){
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade Firmware Spoofer (Mod by storm21) ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Firmware Spoofer (Mod by storm21) erfolgreich geladen</h1>";
+fw1 = parseInt(fws1.value, 16);
+fw2 = parseInt(fws2.value, 16);
+setTimeout(jailbreak, 500);
+var script = document.createElement('script'); script.src = "pl_spoofer.js"; document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
+}
+</script>
+</body>
+</html>
