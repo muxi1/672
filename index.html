@@ -37,7 +37,7 @@ function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML="Cac
 <button onclick="load_fanthresh(); return false"><h1 style='font-size:18px;text-align:center;font-family:Felix Titling'</h1><span style="color:#8A0808">Aktiviere Luefter Steuerung</span></button><select id="tempC"></select>&#176;C
 <br><br>
 <div style="position:fixed;left:0;bottom:-8px;width:100%;font-size:16px;">
-<hr>Lite Version 34 *** GoldHEN v2.4b18.5 *** (Sleirsgoevy Jailbreak vom 13.01.2022 - Webkit Exploit vom 13.04.2021)<hr>
+<hr>Lite Version 35 *** GoldHEN v2.4b18.6 *** (Sleirsgoevy Jailbreak vom 13.01.2022 - Webkit Exploit vom 13.04.2021)<hr>
 </div>
 <script>
 for(var i=40; i<=79; i++){var select = document.getElementById("tempC"); var option = document.createElement("OPTION"); select.options.add(option); option.text = i; option.value = i;}
@@ -74,8 +74,8 @@ var getlength = "0x" + req.response.byteLength.toString(16);
 window.mira_blob_2_len = getlength;
 window.mira_blob_2 = malloc(window.mira_blob_2_len);
 write_mem(window.mira_blob_2, payload);
-msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade GoldHEN v2.4b18.5 ...</h1>";
-LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>GoldHEN v2.4b18.5 erfolgreich geladen - Druecke die Kreis Taste zum Schliessen des Fensters</h1>";
+msgs.innerHTML="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>Lade GoldHEN v2.4b18.6 ...</h1>";
+LoadedMSG="<h1 style='font-size:15px;text-align:center;font-family:Felix Titling'>GoldHEN v2.4b18.6 erfolgreich geladen - Druecke die Kreis Taste zum Schliessen des Fensters</h1>";
 function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
 var script = document.createElement('script'); script.src = payload; document.getElementsByTagName('head')[0].appendChild(script);
 var script = document.createElement('script'); script.src = "exp_loader.js"; document.getElementsByTagName('head')[0].appendChild(script);
